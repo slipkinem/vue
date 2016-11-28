@@ -1,0 +1,16 @@
+@import "style";
+@mixin btn {
+  margin-right:5px;
+  color: $menuBgColor;
+  padding: 5px;
+  border-radius: 5px;
+  &:hover{
+    background: $menuBgColor;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+@mixin btn-active {
+  background: $menuBgColor;
+  color: #fff;
+}
