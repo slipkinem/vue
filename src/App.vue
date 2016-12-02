@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import Hello from './components/Hello'
 import AppFooter from './components/AppFooter'
 import AppHeader from './components/AppHeader'
 import AppContent from './components/AppContent'
 
 export default {
-  name: 'app',
   components: {
-    Hello, AppFooter, AppHeader, AppContent
+    AppFooter,
+    AppHeader,
+    AppContent
   }
 }
 </script>

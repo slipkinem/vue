@@ -1,69 +1,17 @@
 <template>
     <div class="inner">
         <div id="topic-list">
-            <div class="cell clearfix">
+            <div class="cell clearfix" v-for="article in articles">
                 <div class="col-xs-2 user-avatar reply-count">
                     <img src="../../assets/img/logo.png" alt="">
                     94/1694
                 </div>
                 <div class="col-xs-7 topic_title">
                     <span class="topic-top">置顶</span>
-                    <a href="">很纠结士大夫但是</a>
+                    <a href="">{{article.title}}</a>
                 </div>
                 <div class="col-xs-2">
-                    <a href="">3小时前</a>
-                </div>
-            </div>
-            <div class="cell clearfix">
-                <div class="col-xs-2 user-avatar reply-count">
-                    <img src="../../assets/img/logo.png" alt="">
-                    94/1694
-                </div>
-                <div class="col-xs-7 topic_title">
-                    <span class="topic-top">置顶</span>
-                    <a href="">很纠结士大夫但是</a>
-                </div>
-                <div class="col-xs-2">
-                    <a href="">3小时前</a>
-                </div>
-            </div>
-            <div class="cell clearfix">
-                <div class="col-xs-2 user-avatar reply-count">
-                    <img src="../../assets/img/logo.png" alt="">
-                    94/1694
-                </div>
-                <div class="col-xs-7 topic_title">
-                    <span class="topic-top">置顶</span>
-                    <a href="">很纠结士大夫但是</a>
-                </div>
-                <div class="col-xs-2">
-                    <a href="">3小时前</a>
-                </div>
-            </div>
-            <div class="cell clearfix">
-                <div class="col-xs-2 user-avatar reply-count">
-                    <img src="../../assets/img/logo.png" alt="">
-                    94/1694
-                </div>
-                <div class="col-xs-7 topic_title">
-                    <span class="topic-top">置顶</span>
-                    <a href="">很纠结士大夫但是</a>
-                </div>
-                <div class="col-xs-2">
-                    <a href="">3小时前</a>
-                </div>
-            </div>
-            <div class="cell clearfix">
-                <div class="col-xs-2 user-avatar reply-count">
-                    <img src="../../assets/img/logo.png" alt="">
-                    94/1694
-                </div>
-                <div class="col-xs-7 topic_title">
-                    <span class="topic-top">置顶</span>
-                    <a href="">很纠结士大夫但是</a>
-                </div>
-                <div class="col-xs-2">
-                    <a href="">3小时前</a>
+                    <a href="">{{article.author}}</a>
                 </div>
             </div>
         </div>
@@ -73,7 +21,7 @@
 <style lang="scss" rel="stylesheet/scss">
     @import "../../assets/scss/mixin";
     .cell{
-        font-size: 18px;
+        font-size: 16px;
         padding: 10px;
         cursor: pointer;
         color: #000;
@@ -107,7 +55,16 @@
 </style>
 
 <script>
+  import {mapState, mapActions} from 'vuex'
   export default {
-    name: 'app-article'
+    created () {
+      this.getArticles()
+    },
+    computed: {
+      ...mapState(['articles'])
+    },
+    methods: {
+      ...mapActions(['getArticles'])
+    }
   }
 </script>
